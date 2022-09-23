@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Aryan Tiwari</title>
+	<link href="styles.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="window" id="notepad">
+	<div class="title">
+		<div class="titleContent">
+			<div class="iconContainer"><img class="icon" src="notepad.jpg"></div>
+			<div class="titleText">*Untitled - Notepad</div>
+		</div>
+		<div class="closeBtn">&times;</div>
+	</div>
+	<div class="winbody">
+		<div class="menubar">
+			<button class="menubarItem">File</button>
+			<button class="menubarItem">Edit</button>
+			<button class="menubarItem">Format</button>
+			<button class="menubarItem">View</button>
+			<button class="menubarItem">Help</button>
+		</div>
+		<textarea class="textBox"></textarea>
+	</div>
+</div>
+
+<div class="window" id="gif">
+	<div class="title">
+		<div class="titleContent">
+			<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
+			<div class="titleText">gif player</div>
+		</div>
+		<div class="closeBtn">&times;</div>
+	</div>
+	<div class="winbody">
+		<img src="galaxy.gif" alt="This is an animated gif image, but it does not move"/>
+	</div>
+</div>
+
+<div class="window" id="video">
+	<div class="title">
+		<div class="titleContent">
+			<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
+			<div class="titleText">videoplayer</div>
+		</div>
+		<div class="closeBtn">&times;</div>
+	</div>
+	<div class="winbody">
+		<video controls>
+  <source src="movie.mp4" type="video/mp4">
+	</video>
+	</div>
+</div>
+
+<div class="taskbar">
+	<div class="startIconFrame" id="startIconFrame" title="Start">
+			<img src="windows.png"></img>
+	</div>
+	<form method="get" action="https://www.google.com/search">
+		<input type="text" name="q" value="" class="taskSearch" placeholder="Search the web and Windows">
+	</form>
+</div>
+
+</body>
+</html>

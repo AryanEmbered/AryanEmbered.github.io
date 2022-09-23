@@ -1,0 +1,203 @@
+body {
+background: url('wallpaper.jpg');
+background-size: cover;
+overflow: hidden;
+}
+
+#notepad {
+  position: absolute;
+  top: 1%;
+  left: 1%;
+  width: 50%;
+  height: 90%;
+  overflow: hidden;
+}
+
+#video {
+  position: absolute;
+  top: 1%;
+  left: 53%;
+  overflow: hidden;
+}
+
+#gif {
+  position: absolute;
+  top: 52%;
+  left: 60%;
+}
+
+.window {
+border-width: 1px;
+border-style: solid;
+display: inline-block;
+overflow: hidden;
+resize: both;
+}
+
+.window:hover {
+border-width: 2px;
+border-style: solid;
+border-color: blue;
+display: inline-block;
+overflow: hidden;
+resize: both;
+}
+
+.title {
+position: relative;
+background: white;
+height: 30px;
+}
+
+.titleContent {
+position: absolute;
+}
+
+.titleText {
+font-family: 'Segoe UI', Tahoma, sans-serif;
+font-size: 12px;
+display: inline;
+padding: 20px;
+}
+
+.titleContent {
+display: inline;
+}
+
+.iconContainer {
+display: inline;
+position: relative;
+}
+
+.icon {
+position: absolute;
+top: 40%;
+}
+
+.closeBtn {
+display: inline;
+float: right;
+width: 45px;
+height: 30px;
+font-size: 25px;
+font-family: 'Times New Roman', Times, serif;
+text-align: center;
+}
+
+.closeBtn:hover {
+background: red;
+color: white;
+}
+
+.winbody {
+background: #F0F0F0;
+height: 100%;
+width: 100%;
+overflow: hidden;
+position: relative;
+left: 0;
+top: 0;
+z-index:1;
+}
+
+.menubar {
+background: #FFFFFF;
+font-family: 'Segoe UI', Tahoma, sans-serif;
+font-size: 12px;
+border-bottom:solid #F0F0F0 2px;
+}
+
+.menubarItem {
+background: #FFFFFF;
+font-family: 'Segoe UI', Tahoma, sans-serif;
+font-size: 12px;
+border: 2px solid white;
+padding: 0px 4px;
+transition: 0.1s;
+}
+
+.menubarItem:hover{
+color: black;
+background: #91C9F7;
+border: 2px solid #91C9F7;
+}
+
+.wintext {
+font-family: 'Segoe UI', Tahoma, sans-serif;
+font-size: 9pt;
+text-align: left;
+padding: 10px;
+}
+
+.textBox {
+background: white;
+font-family: Consolas;
+font-size: 11pt;
+border: #0078D7;
+border-width: 1px;
+border-style: solid;
+padding: 5px;
+width: 98.5%;
+height: 90%;
+overflow: scroll;
+resize:none;
+}
+
+.taskbar {
+width: 100%;
+color: #FFFFFF;
+position: fixed;
+left: 0;
+right: 0;
+bottom: 0;
+height: 42px;
+background-color: #000000;
+opacity: 0.9;
+z-index:2;
+}
+
+.startIconFrame {
+float:left;
+display: inline-block;
+width: 120px;
+}
+
+.taskSearch {
+float: left;
+text-align: left;
+width: 331px;
+height: 38px;
+padding-left: 11px;
+font-family: 'Segoe UI', Tahoma, sans-serif;
+font-size: 15px;
+background-color: #3F3F3F;
+color: white;
+border: 1px solid transparent;
+}
+
+.taskSearch:hover, .taskSearch:active {
+background-color: #4C4C4C;
+}
+.taskSearch:focus {
+background-color: white;
+color: black;
+}
+@media (max-width: 1000px) {
+  .taskSearch {
+  float: left;
+  text-align: left;
+  width: 48px;
+  height: 38px;
+  padding-left: 11px;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-size: 15px;
+  background-color: #3F3F3F;
+  color: white;
+  border: 1px solid transparent;
+  }
+}
+@media (max-height: 600px) {
+  .taskbar {
+    display: none;
+  }
+}
