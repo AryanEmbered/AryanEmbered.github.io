@@ -6,61 +6,101 @@
 </head>
 <body>
 
-<div class="window" id="notepad">
-	<div class="title">
-		<div class="titleContent">
-			<div class="iconContainer"><img class="icon" src="notepad.jpg"></div>
-			<div class="titleText">*Untitled - Notepad</div>
-		</div>
-		<div class="closeBtn">&times;</div>
-	</div>
-	<div class="winbody">
-		<div class="menubar">
-			<button class="menubarItem">File</button>
-			<button class="menubarItem">Edit</button>
-			<button class="menubarItem">Format</button>
-			<button class="menubarItem">View</button>
-			<button class="menubarItem">Help</button>
-		</div>
-		<textarea class="textBox"></textarea>
-	</div>
+
+
+<div class="grid-container">
+	<div class="grid-item"><img src="pdf.jpg" width="32"><br>
+		Resume.pdf<br></div>
+	
+	<a href="https://drive.google.com/drive/folders/1ZN_QP-hWxp6HpZIJ1ADFAUvFdmOdqguK?usp=sharing" target="_blank">
+		<div class="grid-item"><img src="folder.png" width="32"><br>Certificates and Marksheets</div>
+	</a>
+
+	<a href="https://github.com/AryanEmbered?tab=repositories" target="_blank"><div class="grid-item"><img src="github.png" width="32"><br>Github Profile</div>
+	</a>
+
+
+	<a href="https://www.linkedin.com/in/aryan-tiwari-3882b168/" target="_blank">
+		<div class="grid-item"><img src="linkedin.png" width="32"><br>Linkedin Profile</div>
+	</a>
+
+	<div class="grid-item"><img src="ongoingprojects.png" width="32"><br>
+		On Going Projects</div>	
 </div>
 
-<div class="window" id="gif">
-	<div class="title">
-		<div class="titleContent">
-			<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
-			<div class="titleText">gif player</div>
+<div class="sampleWindows">
+	<div class="window" id="notepad">
+		<div class="title">
+			<div class="titleContent">
+				<div class="iconContainer"><img class="icon" src="notepad.jpg"></div>
+				<div class="titleText">*Untitled - Notepad</div>
+			</div>
+			<div class="closeBtn">&times;</div>
 		</div>
-		<div class="closeBtn">&times;</div>
-	</div>
-	<div class="winbody">
-		<img src="galaxy.gif" alt="This is an animated gif image, but it does not move"/>
-	</div>
-</div>
-
-<div class="window" id="video">
-	<div class="title">
-		<div class="titleContent">
-			<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
-			<div class="titleText">videoplayer</div>
+		<div class="winbody">
+			<div class="menubar">
+				<button class="menubarItem">File</button>
+				<button class="menubarItem">Edit</button>
+				<button class="menubarItem">Format</button>
+				<button class="menubarItem">View</button>
+				<button class="menubarItem">Help</button>
+			</div>
+			<textarea class="textBox"></textarea>
 		</div>
-		<div class="closeBtn">&times;</div>
 	</div>
-	<div class="winbody">
-		<video controls>
-  <source src="movie.mp4" type="video/mp4">
-	</video>
+	<div class="window" id="gif">
+		<div class="title">
+			<div class="titleContent">
+				<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
+				<div class="titleText">gif player</div>
+			</div>
+			<div class="closeBtn">&times;</div>
+		</div>
+		<div class="winbody">
+			<img src="galaxy.gif" alt="This is an animated gif image, but it does not move"/>
+		</div>
+	</div>
+	<div class="window" id="video">
+		<div class="title">
+			<div class="titleContent">
+				<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
+				<div class="titleText">videoplayer</div>
+			</div>
+			<div class="closeBtn">&times;</div>
+		</div>
+		<div class="winbody">
+			<video controls height=90%>
+	<source src="movie.mp4" type="video/mp4">
+		</video>
+		</div>
 	</div>
 </div>
 
 <div class="taskbar">
-	<div class="startIconFrame" id="startIconFrame" title="Start">
+	<!-- <div class="startIconFrame" id="startIconFrame" title="Start">
 			<img src="windows.png"></img>
-	</div>
-	<form method="get" action="https://www.google.com/search">
-		<input type="text" name="q" value="" class="taskSearch" placeholder="Search the web and Windows">
+	</div> -->
+	
+	<form method="get" action="https://www.google.com/search" class="taskSearch">
+		<input type="text" name="q" value="" class="taskSearch" 
+		placeholder="Search the web">
 	</form>
+
+	
+	
+	<div class="taskOpened" id="showDesktop">
+	Show Desktop
+	</div>
+
+
+	<div class="taskbarTime">
+		<input type="text" id="currentTime">
+		<script>
+			var today = new Date();
+			var time = today.getHours() + ":" + today.getMinutes()
+			document.getElementById("currentTime").value = time;
+		</script>
+	</div>
 </div>
 
 </body>
