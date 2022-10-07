@@ -5,9 +5,6 @@ maybe having some design application would be nice
 
 
 alright, the icons on the left area are
-
-
-
 certificates and marksheets
 linkedin
 github profile, 
@@ -15,5 +12,5 @@ resume pdf
 ongoing projects
 
 
-
-The next thing I need to do is add a javascript file
+plans for the next session would be to add link for resume and on going projects
+and then having taskbar instances of the multiple things there
