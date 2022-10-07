@@ -14,3 +14,6 @@ github profile,
 resume pdf
 ongoing projects
 
+
+
+The next thing I need to do is add a javascript file

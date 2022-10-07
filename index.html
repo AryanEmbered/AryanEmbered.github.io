@@ -3,32 +3,48 @@
 <head>
 <title>Aryan Tiwari</title>
 	<link href="styles.css" rel="stylesheet">
+	<script src="resume.js"></script>
 </head>
 <body>
 
+    <!-- <p id="para">Some text here</p>
+    <button onclick="changeVisibility('None');">invisible</button>
+	<button onclick="changeVisibility('block');">visible</button> -->
 
 
-<div class="grid-container">
-	<div class="grid-item"><img src="pdf.jpg" width="32"><br>
-		Resume.pdf<br></div>
+<span class="LinkedIcons">
+	<div class="grid-item"><img src="pdf.jpg" width="32">
+		<br>
+		Resume.pdf
+		<br>
+	</div>
 	
 	<a href="https://drive.google.com/drive/folders/1ZN_QP-hWxp6HpZIJ1ADFAUvFdmOdqguK?usp=sharing" target="_blank">
-		<div class="grid-item"><img src="folder.png" width="32"><br>Certificates and Marksheets</div>
+		<div class="grid-item"><img src="folder.png" width="32">
+			<br>Certificates and Marksheets
+		</div>
 	</a>
 
-	<a href="https://github.com/AryanEmbered?tab=repositories" target="_blank"><div class="grid-item"><img src="github.png" width="32"><br>Github Profile</div>
+	<a href="https://github.com/AryanEmbered?tab=repositories" target="_blank">
+		<div class="grid-item">
+			<img src="github.png" width="32">
+			<br>Github Profile
+		</div>
 	</a>
-
 
 	<a href="https://www.linkedin.com/in/aryan-tiwari-3882b168/" target="_blank">
-		<div class="grid-item"><img src="Linkedin.png" width="32"><br>Linkedin Profile</div>
+		<div class="grid-item"><img src="Linkedin.png" width="32">
+			<br>Linkedin Profile
+		</div>
 	</a>
 
 	<div class="grid-item"><img src="ongoingprojects.png" width="32"><br>
-		On Going Projects</div>	
-</div>
+		On Going Projects
+	</div>
 
-<div class="sampleWindows">
+</span>
+
+<div id="sampleWindows">
 	<div class="window" id="notepad">
 		<div class="title">
 			<div class="titleContent">
@@ -76,11 +92,7 @@
 	</div>
 </div>
 
-<div class="taskbar">
-	<!-- <div class="startIconFrame" id="startIconFrame" title="Start">
-			<img src="windows.png"></img>
-	</div> -->
-	
+<div class="taskbar">	
 	<form method="get" action="https://www.google.com/search" class="taskSearch">
 		<input type="text" name="q" value="" class="taskSearch" 
 		placeholder="Search the web">
@@ -88,7 +100,7 @@
 
 	
 	
-	<div class="taskOpened" id="showDesktop">
+	<div class="taskOpened" onclick="changeVisibility('sampleWindows');">
 	Show Desktop
 	</div>
 

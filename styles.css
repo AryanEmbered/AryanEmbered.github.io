@@ -4,20 +4,17 @@ background-size: 100%;
 overflow: hidden;
 }
 
-
-.grid-container {
+.LinkedIcons {
   text-align: center;
   display: grid;
   width: 7%;
   gap: 10%;
   font-size: 10px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  text-shadow: 1px 1px #000000;
   color: white;
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.379);
   margin-top: 1%;
 }
-
 
 
 
@@ -105,7 +102,6 @@ a:hover {
   opacity: 0.9;
 }
 
-.sampleWindows {display: block;}
 
 #notepad {
   position: absolute;
@@ -253,9 +249,9 @@ resize:none;
 
 
 .startIconFrame {
-float: left;
-display: inline-block;
-width: 120px;
+  display: inline-block;
+  width: 120px;
+  /* float: left; */
 }
 
 
