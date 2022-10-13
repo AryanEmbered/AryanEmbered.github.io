@@ -105,20 +105,38 @@ a:hover {
 
 #notepad {
   position: absolute;
-  top: 1%;
-  left: 10%;
+  top: 58%;
+  left: 50%;
   width: 40%;
-  height: 90%;
+  height: 30%;
   overflow: hidden;
 }
 
 #video {
   position: absolute;
-  top: 45%;
-  left: 55%;
-  overflow: scroll;
-  width: 30%;
-  height: 40%;
+  top: 1%;
+  left: 7%;
+  overflow: hidden;
+  width: auto;
+  height: 50%;
+}
+
+#video2 {
+  position: absolute;
+  top: 2%;
+  left: 51%;
+  overflow: hidden;
+  width: auto;
+  height: 55%;
+}
+
+#video3 {
+  position: absolute;
+  top: 52%;
+  left: 10%;
+  overflow: hidden;
+  width: auto;
+  height: 42%;
 }
 
 #gif {
@@ -148,29 +166,33 @@ resize: both;
 }
 
 .title {
-position: relative;
-background: white;
-height: 30px;
+  position: relative;
+  background: white;
+  height: 30px;
 }
 
-.titleContent {
-position: absolute;
-}
+
 
 .titleText {
 font-family: 'Segoe UI', Tahoma, sans-serif;
 font-size: 12px;
 display: inline;
-padding: 20px;
+padding-left: 20px;
+
+
 }
 
 .titleContent {
-display: inline;
+display: grid;
+margin-left: 1%;
+position: absolute;
+height: 100%;
 }
 
 .iconContainer {
 display: inline;
-position: relative;
+/* position: relative; */
+height: 100%;
 }
 
 .icon {
@@ -182,7 +204,7 @@ top: 40%;
 display: inline;
 float: right;
 width: 45px;
-height: 30px;
+height: 100%;
 font-size: 25px;
 font-family: 'Times New Roman', Times, serif;
 text-align: center;
