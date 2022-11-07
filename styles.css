@@ -1,12 +1,8 @@
 body {
-background: url('wallpaper.jpg');
+background: url('imagesandmedia/wallpaper.jpg');
 background-size: 100%;
 overflow: hidden;
 }
-
-
-
-
 
 .taskOpened {
   box-shadow:0px 0px 0px 1px rgb(255, 255, 255) inset;
@@ -21,10 +17,10 @@ overflow: hidden;
   background-color: #441616;
   color: white;
 }
+
 .taskOpened:hover {
   background-color: #837e7e74;
 }
-
 
 .taskSearch {
   float: left;
@@ -112,7 +108,6 @@ a:hover {
   gap: 20px;
 }
 
-
 .LinkedIcons {
   display: flex;
   align-items:center;
@@ -177,7 +172,6 @@ a:hover {
   height: 40%;
 }
 
-
 .window {
 border-width: 1px;
 border-style: solid;
@@ -201,15 +195,11 @@ resize: both;
   height: 30px;
 }
 
-
-
 .titleText {
 font-family: 'Segoe UI', Tahoma, sans-serif;
 font-size: 12px;
 display: inline;
 padding-left: 20px;
-
-
 }
 
 .titleContent {
@@ -299,7 +289,6 @@ overflow: scroll;
 resize:none;
 }
 
-
 .startIconFrame {
   display: inline-block;
   width: 120px;
@@ -350,8 +339,6 @@ resize:none;
   height: 15%;
   z-index: 2;
 }
-
-
 }
 
 /* @media (max-width: 1000px) {
