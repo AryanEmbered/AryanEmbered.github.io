@@ -1,158 +1,271 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Aryan Tiwari</title>
-		<link href="styles.css" rel="stylesheet">
-		<script src="resume.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aryan Tiwari — Resume</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#16221e; --ink-soft:#3a4945; --muted:#65736e;
+    --accent:#0c7a5e; --accent-deep:#0a5f49; --accent-soft:#e7f3ef;
+    --paper:#fff; --sidebar:#f4f7f5; --rule:#d9e2de;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink); background:#eceeed; line-height:1.4; font-size:12px;
+    -webkit-font-smoothing:antialiased; padding:24px 16px;
+  }
+  
+  .sheet{
+    width:210mm; margin:0 auto; 
+    /* Bulletproof Faux Column Hack: Paints the split background on the parent container */
+    background: linear-gradient(to right, 
+      var(--sidebar) 0, 
+      var(--sidebar) calc(60mm - 1px), 
+      var(--rule) calc(60mm - 1px), 
+      var(--rule) 60mm, 
+      var(--paper) 60mm, 
+      var(--paper) 100%
+    );
+    box-shadow:0 6px 40px rgba(20,40,34,.14);
+    display:grid; grid-template-columns:60mm 1fr; overflow:hidden;
+  }
+
+  /* Masthead */
+  .masthead{grid-column:1/-1;background:var(--ink);color:#fff;padding:20px 28px 18px;position:relative;}
+  .masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-deep) 60%,#0d4a39);}
+  .name{font-size:31px;font-weight:800;letter-spacing:-.02em;line-height:1;}
+  .tagline{font-family:'JetBrains Mono',monospace;font-size:10.5px;font-weight:500;color:#9fd9c8;margin-top:8px;}
+  .contacts{margin-top:12px;display:flex;flex-wrap:wrap;gap:5px 16px;font-size:10.5px;color:#cdd8d4;}
+  .contacts a{color:#cdd8d4;text-decoration:none;}
+  .contacts span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+  .contacts .dot{width:4px;height:4px;border-radius:50%;background:var(--accent);}
+  .open-pill{display:inline-block;margin-top:11px;font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.04em;color:#0c2c23;background:#9fd9c8;padding:3px 9px;border-radius:3px;font-weight:600;}
+
+  /* Sidebar */
+  /* Background/border removed here because the .sheet gradient draws it now */
+  .sidebar{padding:18px 18px 22px;}
+  .sb-block{margin-bottom:16px;}
+  .sb-block:last-child{margin-bottom:0;}
+  .label{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-deep);display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+  .label::after{content:"";flex:1;height:1px;background:var(--rule);}
+  .summary{font-size:11px;color:var(--ink-soft);line-height:1.5;}
+
+  .skill-cat{margin-bottom:8px;}
+  .skill-cat:last-child{margin-bottom:0;}
+  .skill-cat .k{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.04em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:2px;}
+  .skill-cat .v{font-size:10px;color:var(--ink-soft);line-height:1.42;}
+
+  .award-list{list-style:none;font-size:10.5px;color:var(--ink-soft);}
+  .award-list li{padding-left:14px;position:relative;margin-bottom:4px;line-height:1.35;}
+  .award-list li::before{content:"\2605";position:absolute;left:0;color:var(--accent);font-size:9px;top:1px;}
+  .award-list strong{font-weight:700;color:var(--ink);}
+
+  .pub{font-size:10px;color:var(--ink-soft);margin-bottom:7px;line-height:1.38;}
+  .pub:last-child{margin-bottom:0;}
+  .pub .src{font-family:'JetBrains Mono',monospace;font-size:8.5px;color:var(--accent-deep);display:block;letter-spacing:.02em;margin-bottom:1px;}
+  .pub a{color:var(--accent);text-decoration:none;}
+
+  .interest{font-size:10px;color:var(--ink-soft);line-height:1.42;}
+  .interest strong{color:var(--ink);}
+
+  /* Main */
+  .main{padding:18px 26px 22px;}
+  .main-label{font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-deep);display:flex;align-items:center;gap:9px;margin-bottom:11px;}
+  .main-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+
+  .role-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
+  .role-title{font-size:15px;font-weight:800;color:var(--ink);letter-spacing:-.01em;}
+  .role-dates{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--muted);white-space:nowrap;}
+  .role-org{font-size:11px;color:var(--accent-deep);font-weight:600;margin-top:2px;}
+  .role-org .sep{color:var(--rule);margin:0 6px;font-weight:400;}
+  .role-org .loc{color:var(--muted);font-weight:500;}
+  .role-intro{font-size:10.5px;color:var(--ink-soft);margin-top:7px;line-height:1.45;}
+
+  .subhead{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:11px 0 7px;padding-bottom:4px;border-bottom:1px dashed var(--rule);}
+
+  .proj{margin-bottom:7px;padding-left:14px;position:relative;}
+  .proj::before{content:"";position:absolute;left:0;top:5px;width:6px;height:6px;border-radius:50%;background:var(--accent);}
+  .proj .pt{font-size:11px;font-weight:700;color:var(--ink);}
+  .proj .pt .meta{font-weight:500;color:var(--accent-deep);font-size:10px;}
+  .proj .pd{font-size:10.5px;color:var(--muted);line-height:1.4;margin-top:1px;}
+  .proj .pd b{color:var(--ink-soft);font-weight:600;}
+
+  .impact{margin-top:11px;background:var(--accent-soft);border-left:3px solid var(--accent);padding:8px 12px;font-size:10px;color:var(--accent-deep);border-radius:0 4px 4px 0;display:flex;flex-wrap:wrap;gap:4px 16px;}
+  .impact b{color:var(--ink);font-weight:700;}
+  .impact .it{display:inline-flex;align-items:center;gap:6px;}
+  .impact .it::before{content:"\25B8";color:var(--accent);}
+
+  .edu-section{margin-top:16px;}
+  .edu{margin-bottom:8px;}
+  .edu-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
+  .edu-deg{font-size:11.5px;font-weight:700;color:var(--ink);}
+  .edu-yr{font-family:'JetBrains Mono',monospace;font-size:9.5px;color:var(--muted);white-space:nowrap;}
+  .edu-sub{font-size:10.5px;color:var(--muted);margin-top:1px;}
+  .edu-sub b{color:var(--accent-deep);font-weight:600;}
+
+  @media print{
+    body{background:#fff;padding:0;}
+    /* 297mm (A4) - 9mm (top margin) - 9mm (bottom margin) = 279mm exactly */
+    .sheet{box-shadow:none; width:100%; min-height:279mm;}
+    @page{size:A4;margin:9mm;}
+    a{color:inherit;}
+    *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
+  }
+
+  @media(max-width:760px){
+    body{padding:10px;}
+    /* Revert to solid white background for mobile since it stacks */
+    .sheet{width:100%;grid-template-columns:1fr; background: var(--paper);}
+    /* Give the sidebar background back explicitly for mobile */
+    .sidebar{background:var(--sidebar); border-bottom:1px solid var(--rule);}
+  }
+/* --- ADD THIS TO THE BOTTOM OF YOUR CSS --- */
+
+/* 1. Force the main sheet container to stretch to the full height of the screen */
+.sheet {
+    min-height: 100vh;
+}
+
+/* 2. Ensure the sidebar and main columns stretch to fill the container's height */
+.sidebar, .main {
+    min-height: 100%;
+}
+
+/* 3. Print/PDF specific rules to ensure it fits perfectly on the A4 page */
+@media print {
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .sheet {
+        height: 100%;
+        min-height: 100%;
+    }
+    
+    /* FALLBACK: If your specific PDF generator leaves a tiny gap at the bottom 
+       OR accidentally creates a second blank page because of your 9mm @page margins, 
+       comment out the 'height: 100%' rule above for .sheet, and uncomment this instead: */
+       
+    /* .sheet {
+        min-height: calc(100vh - 18mm); 
+    } */
+}
+</style>
 </head>
 <body>
+<div class="sheet">
 
+  <header class="masthead">
+    <div class="name">Aryan Tiwari</div>
+    <div class="tagline">LLM Engineer · AI Systems · Full-Stack Development · Agentic Automation</div>
+    <div class="contacts">
+<span><span class="dot"></span>Experience: 3.5 years</span>
+      <span><span class="dot"></span>aryantiwari209@gmail.com</span>
+      <span><span class="dot"></span>+91 9953238821</span>
+      
 
-<div class="LinkedIcons">
-	<a href="https://drive.google.com/file/d/1SPss33PEkJffcrEjAc2kLIHlluTea3D6/view?usp=sharing" target="_blank">
-		<div class="grid-item"><img src="imagesandmedia/pdf.jpg" width="32">
-			<br>
-			Resume.pdf
-			<br>
-		</div>
-	</a>
-	<br>
-	<a href="https://drive.google.com/drive/folders/1ZN_QP-hWxp6HpZIJ1ADFAUvFdmOdqguK?usp=sharing" target="_blank">
-			<div class="grid-item"><img src="imagesandmedia/folder.png" width="32">
-				<br>Certificates
-			</div>
-	</a>
-	<br>
-	<a href="https://github.com/AryanEmbered?tab=repositories" target="_blank">
-			<div class="grid-item">
-				<img src="imagesandmedia/github.png" width="32">
-				<br>Github Profile
-			</div>
-	</a>
-	<br>
-	<a href="https://www.linkedin.com/in/aryan-tiwari-3882b168/" target="_blank">
-			<div class="grid-item"><img src="imagesandmedia/Linkedin.png" width="32">
-				<br>Linkedin Profile
-			</div>
-	</a>
-	<br>
-	<!-- <div class="grid-item"><img src="imagesandmedia/ongoingprojects.png" width="32"><br>
-			On Going Projects
-	</div>	 -->
+      <span><span class="dot"></span><a href="https://www.linkedin.com/in/aryan-tiwari-3882b168/">linkedin.com/in/aryan-tiwari</a></span>
+      <span><span class="dot"></span>Noida, India</span>
+    </div>
+    <span class="open-pill">OPEN TO REMOTE &amp; RELOCATION</span>
+  </header>
+
+  <aside class="sidebar">
+    <section class="sb-block">
+      <div class="label">Summary</div>
+      <p class="summary">AI &amp; Engineering SDE building production LLM systems at Google scale through Deloitte USI. Architect and primary developer of the VMO AI &amp; Automation ecosystem — RAG chatbots, AI forecasting platforms, agentic automation, and contract-review tooling that removed analyst workloads and served 30,000+ users.</p>
+    </section>
+
+    <section class="sb-block">
+      <div class="label">Skills</div>
+      <div class="skill-cat"><div class="k">LLM &amp; AI</div><div class="v">OpenAI SDK · Vertex AI · Gemini SDK · LangChain · Postgres · Llama.cpp · HuggingFace · RAG · Agentic workflows</div></div>
+      <div class="skill-cat"><div class="k">Languages</div><div class="v">Python · JavaScript · SQL · Bash · PowerShell · C/C++</div></div>
+      <div class="skill-cat"><div class="k">Frontend &amp; Backend</div><div class="v">React 19 · Next.js · Angular · Node.js · Flask · FastAPI · TailwindCSS · Vite</div></div>
+      <div class="skill-cat"><div class="k">Cloud &amp; Data</div><div class="v">GCP · BigQuery · App Engine · Workspace API · Looker Studio · Pandas · Git</div></div>
+    </section>
+
+    <section class="sb-block">
+      <div class="label">Recognition</div>
+      <ul class="award-list">
+        <li><strong>2&times; Deloitte Spot Award</strong></li>
+        <li><strong>Applause Award</strong> &mdash; Project CLONE</li>
+        <li><strong>TMT Token of Gratitude</strong></li>
+        <li>Multiple Google letters of appreciation</li>
+      </ul>
+    </section>
+
+    <section class="sb-block">
+      <div class="label">Publications</div>
+      <div class="pub"><span class="src"><a href="https://www.cybernomics.in/index.php/cnm/article/view/143">Cybernomics Journal · Feb 2020</span>Cybernetic Limitations of Human-Machine Cognitive Interfaces: Spatial Resolution &amp; EEG · </a></div>
+      <div class="pub"><span class="src"><a href="https://orcid.org/0000-0001-8613-295X">ICEIL · 2020</span>Analysis of Machine Learning Techniques in Recommendation Systemsorcid.org/0000-0001-8613-295X</a></div>
+      
+    </section>
+
+    <section class="sb-block">
+      <div class="label">Interests</div>
+      <p class="interest"><strong>WTC Productions</strong> — Ran a 73k-subscriber YouTube network as a side venture (led 136 contractors, scripted automated payouts, built retention analytics).</p>
+    </section>
+<section><p class="interest">Local-LLM tinkering &amp; self-hosting</p>
+</section>
+  </aside>
+
+  <main class="main">
+    <div class="main-label">Experience</div>
+
+    <div class="role-top">
+      <div class="role-title">Software Engineer I — AI &amp; Engineering</div>
+      <div class="role-dates">Feb 2023 – Present</div>
+    </div>
+    <div class="role-org">Deloitte USI · Google Cloud VMO<span class="sep">|</span><span class="loc">Gurgaon / Hyderabad, IN</span></div>
+    <p class="role-intro">Developer in the Google Cloud VMO AI &amp; Automation ecosystem. Architect solutions across the stack — often co-ideated with the client in the room — and own them through build, change management, and support.</p>
+
+    <div class="subhead">VMO AI &amp; Automation Ecosystem</div>
+
+    <div class="proj"><div class="pt">[Reacted Tool Name] — Enterprise GenAI Chatbot <span class="meta">(Text-to-SQL RAG)</span></div><div class="pd">Built a <b>Vertex AI + Gemini</b> RAG system giving VMO leadership conversational access to operational &amp; financial data — eliminated analyst dependency for <b>70%</b> of reporting requests.</div></div>
+
+    <div class="proj"><div class="pt">[Reacted Tool Name] — AI Finance Forecasting Platform <span class="meta">(solo build)</span></div><div class="pd">Solo developer; co-ideated with client and led change management. Forecast/actuals reporting &amp; self-service analytics; <b>30,000+ visits</b> over 2 years as source of truth for invoice validation; planning effort down <b>50%</b>.</div></div>
+
+    <div class="proj"><div class="pt">[Reacted Tool Name] — Contract-Review Automation <span class="meta">(with HashedIn)</span></div><div class="pd">Architect/SME on a <b>$200K Deloitte-funded</b> platform for Google that overhauled VMO finance processes; automated contract review via <b>LLM clause &amp; metric extraction</b>.</div></div>
+
+    <div class="proj"><div class="pt">[Reacted Tool Name] — AI Procurement Workflow</div><div class="pd">Implemented AI features across intake, approvals &amp; turnaround tracking; cut PO turnaround time by <b>27%</b> and improved process governance.</div></div>
+
+    <div class="proj"><div class="pt">[Reacted Tool Name] — Automated Alerting Platform</div><div class="pd">Built a monitoring &amp; broadcast system pushing data insights, anomalies, and alerts to stakeholders across critical datasets for proactive exception management.</div></div>
+
+    <div class="proj"><div class="pt">Agentic Data Platform &amp; AI Taxonomy Standardizer</div><div class="pd">LLM platform combining usage analytics with Text-to-SQL for data navigation &amp; agentic automation; taxonomy standardizer and contract-extraction scripts that <b>saved hundreds of manual hours</b>.</div></div>
+
+    <div class="subhead">Firm-Wide Automation &amp; Internal Tools</div>
+
+    <div class="proj"><div class="pt">Project CLONE — Workforce Automation <span class="meta">(firm initiative · Applause Award)</span></div><div class="pd">Built and demoed an LLM-driven platform automating timesheets, scheduling, and management tasks for Deloitte employees.</div></div>
+
+    <div class="proj"><div class="pt">Internal Automation Toolkit</div><div class="pd">AI spreadsheet-insight tools, email automations, an LLM HTML-email composer/sender, and text-to-speech utilities for internal presentations.</div></div>
+
+    <div class="impact">
+      <span class="it"><b>10+</b>&nbsp;tools shipped</span>
+      <span class="it"><b>15 hrs/week</b>&nbsp;manual effort removed</span>
+      <span class="it">trained internal teams</span>
+      <span class="it">onboarded new engineers</span>
+    </div>
+
+    <div class="edu-section">
+      <div class="main-label">Education</div>
+      <div class="edu">
+        <div class="edu-top"><div class="edu-deg">Bachelor of Computer Applications</div><div class="edu-yr">2019 – 2022</div></div>
+        <div class="edu-sub">Amity University, Noida</div>
+      </div>
+      <div class="edu">
+        <div class="edu-top"><div class="edu-deg">Certificate Course in Business Management &amp; Digital Marketing</div><div class="edu-yr">2019</div></div>
+        <div class="edu-sub">Indian Institute of Technology, Delhi</div>
+      </div>
+    </div>
+  </main>
 </div>
-
-<div id="projects">
-	<div class="window" id="video">
-			<div class="title">
-				<div class="titleContent">
-					<div class="iconContainer"><img class="icon" width=16 height=16 src="imagesandmedia/vlc.png"></div>
-					<div class="titleText">Unreal Engine 5 Desert Landscape - Aryan Tiwari</div>
-				</div>
-				<div class="closeBtn">&times;</div>
-			</div>
-			<div class="winbody">
-				<video controls height="100%">
-				<source src="imagesandmedia/movie.mp4" type="video/mp4">
-				</video>
-			</div>
-	</div>
-
-	<div class="window" id="video2">
-			<div class="title">
-				<div class="titleContent">
-					<div class="iconContainer"><img class="icon" width=16 height=16 src="imagesandmedia/vlc.png"></div>
-					<div class="titleText">voicecontroldemo.mp4</div>
-				</div>
-				<div class="closeBtn">&times;</div>
-			</div>
-			<div class="winbody">
-				<video controls height="100%">
-				<source src="imagesandmedia/voicecontroldemo.mp4" type="video/mp4">
-				</video>
-			</div>
-	</div>
-
-	<div class="window" id="video3">
-			<div class="title">
-				<div class="titleContent">
-					<div class="iconContainer"><img class="icon" width=16 height=16 src="imagesandmedia/vlc.png"></div>
-					<div class="titleText">Semester 6 Major Project</div>
-				</div>
-				<div class="closeBtn">&times;</div>
-			</div>
-			<div class="winbody">
-				<video controls height="100%">
-				<source src="imagesandmedia/SuspendRexume Demo.mp4" type="video/mp4">
-				</video>
-			</div>
-	</div>
-
-	<div class="window" id="notepad">
-			<div class="title">
-				<div class="titleContent">
-					<div class="iconContainer"><img class="icon" src="imagesandmedia/notepad.jpg"></div>
-					<div class="titleText">*Untitled - Notepad</div>
-				</div>
-				<div class="closeBtn">&times;</div>
-			</div>
-			<div class="winbody">
-				<div class="menubar">
-					<button class="menubarItem">File</button>
-					<button class="menubarItem">Edit</button>
-					<button class="menubarItem">Format</button>
-					<button class="menubarItem">View</button>
-					<button class="menubarItem">Help</button>
-				</div>
-				<textarea class="textBox">Video demonstrations of a few of my projects are shown here. 
-In order to view my resume, click resume in the task bar. 
-You can also download the PDF of my resume, marksheets, certificates and other documents from the desktop icons to the left. 
-You can find the links to my LinkedIn and Github accounts from the icons to the left.</textarea>
-				</div>
-	</div>
-</div>
-
-<div id="resume">
-	<embed src="imagesandmedia/resume.pdf" width="100%" height="100%" />
-</div>
-
-<div class="taskbar">	
-	<form method="get" action="https://www.google.com/search" class="taskSearch">
-		<input type="text" name="q" value="" class="taskSearch" 
-		placeholder="Search the web">
-	</form>
-
-	
-	
-	<div class="taskOpened" onclick="changeVisibility('projects');">
-	Show Projects
-	</div>
-	
-	<div class="taskOpened" onclick="changeVisibility('resume');">
-	Show Resume
-	</div>
-
-	<div class="taskbarTime">
-		<input type="text" id="currentTime">
-		<script>
-			var today = new Date();
-			var time = today.getHours() + ":" + today.getMinutes()
-			document.getElementById("currentTime").value = time;
-		</script>
-	</div>
-</div>
-
 </body>
 </html>
-	<!-- <div class="window" id="gif">
-		<div class="title">
-			<div class="titleContent">
-				<div class="iconContainer"><img class="icon" width=16 height=16 src="vlc.png"></div>
-				<div class="titleText">gif player</div>
-			</div>
-			<div class="closeBtn">&times;</div>
-		</div>
-		<div class="winbody">
-			<img src="galaxy.gif" alt="This is an animated gif image, but it does not move"/>
-		</div>
-		<div class="gridbox"></div>
-	</div> -->
