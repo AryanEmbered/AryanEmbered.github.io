@@ -6,206 +6,227 @@
 <title>Aryan Tiwari — Resume</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500;600&family=Google+Sans+Flex:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#16221e; --ink-soft:#3a4945; --muted:#65736e;
-    --accent:#0c7a5e; --accent-deep:#0a5f49; --accent-soft:#e7f3ef;
-    --paper:#fff; --rule:#d9e2de;
+    --g-blue:#4285f4; --g-red:#ea4335; --g-yellow:#fbbc04; --g-green:#34a853;
+    --blue-deep:#1a73e8; --blue-dark:#174ea6; --blue-soft:#e8f0fe;
+    --ink:#202124; --ink-soft:#3c4043; --muted:#5f6368;
+    --paper:#ffffff; --rule:#dadce0; --card:#f8f9fa;
+    --side-w:72mm;
+    --head:'Google Sans Flex','Google Sans','Product Sans','Roboto',sans-serif;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{-webkit-text-size-adjust:100%;}
   body{
-    font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    color:var(--ink); background:#eceeed; line-height:1.35; font-size:11.5px;
-    -webkit-font-smoothing:antialiased; padding:20px 16px;
+    font-family:'Roboto',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+    color:var(--ink);background:#e8eaed;line-height:1.45;font-size:11.5px;
+    -webkit-font-smoothing:antialiased;padding:20px 16px;
   }
+  a{color:inherit;}
 
+  /* Exactly one A4 page tall. The sidebar colour is painted on the sheet
+     itself so it always reaches the bottom edge. */
   .sheet{
-    width:210mm; margin:0 auto;
-    background:var(--paper);
-    box-shadow:0 6px 40px rgba(20,40,34,.14);
+    width:210mm;height:296.5mm;margin:0 auto;overflow:hidden;
+    background:linear-gradient(to right,var(--blue-deep) 0,var(--blue-deep) var(--side-w),var(--paper) var(--side-w));
+    display:grid;grid-template-columns:var(--side-w) 1fr;
+    box-shadow:0 8px 44px rgba(32,33,36,.2);
+    position:relative;
+  }
+  .sheet::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:7px;z-index:2;
+    background:linear-gradient(to right,
+      var(--g-blue) 0 25%,var(--g-red) 25% 50%,var(--g-yellow) 50% 75%,var(--g-green) 75% 100%);
   }
 
-  /* Masthead */
-  .masthead{background:var(--ink);color:#fff;padding:16px 28px 14px;position:relative;}
-  .masthead::after{content:"";position:absolute;left:0;right:0;bottom:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--accent-deep) 60%,#0d4a39);}
-  .masthead-top{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;}
-  .name{font-size:28px;font-weight:800;letter-spacing:-.02em;line-height:1;}
-  .tagline{font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:500;color:#9fd9c8;margin-top:6px;}
-  .contacts{margin-top:10px;display:flex;flex-wrap:wrap;gap:4px 16px;font-size:10px;color:#cdd8d4;}
-  .contacts a{color:#cdd8d4;text-decoration:none;}
-  .contacts span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
-  .contacts .dot{width:4px;height:4px;border-radius:50%;background:var(--accent);}
-  .pdf-btn{
-    display:inline-flex;align-items:center;gap:6px;white-space:nowrap;
-    font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:600;letter-spacing:.04em;
-    color:#eafff6;background:var(--accent-deep);border:1px solid var(--accent);
-    padding:8px 14px;border-radius:5px;text-decoration:none;
-    transition:background .15s ease;
-  }
-  .pdf-btn:hover{background:var(--accent);}
+  /* ---------- Sidebar ---------- */
+  .side{color:#fff;padding:30px 18px 22px;display:flex;flex-direction:column;}
+  .name{font-family:var(--head);font-size:33px;font-weight:700;line-height:1.02;letter-spacing:-.01em;color:#fff;}
+  .dots{display:flex;gap:6px;margin:13px 0 0;}
+  .dots i{width:11px;height:11px;border-radius:50%;display:block;border:1.5px solid #fff;}
+  .dots i:nth-child(1){background:var(--g-blue);}
+  .dots i:nth-child(2){background:var(--g-red);}
+  .dots i:nth-child(3){background:var(--g-yellow);}
+  .dots i:nth-child(4){background:var(--g-green);}
+  .tagline{font-family:'Roboto Mono',monospace;font-size:9.3px;line-height:1.5;color:#d2e3fc;margin-top:11px;}
 
-  .main{padding:14px 26px 18px;}
-  .main-label{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--accent-deep);display:flex;align-items:center;gap:9px;margin-bottom:8px; margin-top:14px;}
-  .main-label:first-child{margin-top:0;}
-  .main-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+  .s-label{
+    font-family:var(--head);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:#fde293;margin:auto 0 9px;padding-bottom:5px;border-bottom:1px solid rgba(255,255,255,.28);
+  }
+  .side > .s-label{border-top:14px solid transparent;background-clip:padding-box;}
+  .contact-list{list-style:none;font-size:10.3px;}
+  .contact-list li{margin-bottom:8px;word-break:break-word;}
+  .contact-list .k{display:block;font-family:'Roboto Mono',monospace;font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:#aecbfa;margin-bottom:2px;}
+  .contact-list a{text-decoration:none;color:#fff;}
+
+  .skill-cat{margin-bottom:10px;}
+  .skill-cat .k{font-size:10.3px;font-weight:700;color:#fff;margin-bottom:6px;}
+  .chips{display:flex;flex-wrap:wrap;gap:4px;}
+  .chip{font-size:8.6px;padding:2px 7px;border-radius:20px;background:#fff;color:var(--blue-dark);font-weight:500;}
+
+  .edu{margin-bottom:10px;}
+  .edu-deg{font-size:10.3px;font-weight:700;color:#fff;line-height:1.3;}
+  .edu-sub{font-size:9.6px;color:#d2e3fc;margin-top:2px;}
+  .edu-yr{font-family:'Roboto Mono',monospace;font-size:8.8px;color:#fde293;margin-top:2px;}
+
+  .award-list{list-style:none;font-size:10.3px;}
+  .award-list li{position:relative;padding-left:15px;margin-bottom:6px;line-height:1.35;color:#e8f0fe;}
+  .award-list li::before{content:"\2605";position:absolute;left:0;top:0;color:var(--g-yellow);font-size:11px;}
+  .award-list strong{color:#fff;font-weight:700;}
+
+  /* ---------- Main ---------- */
+  .main{padding:30px 26px 20px;display:flex;flex-direction:column;}
+  .m-label{
+    font-family:var(--head);font-size:16.5px;font-weight:600;color:var(--ink);
+    display:flex;align-items:center;gap:10px;margin:0 0 10px;
+  }
+  .m-label::before{content:"";width:11px;height:11px;border-radius:50%;background:var(--c,var(--g-blue));}
+  .m-label::after{content:"";flex:1;height:1px;background:var(--rule);}
+  .m-label.gap{margin-top:20px;}
+  .c-blue{--c:var(--g-blue);} .c-red{--c:var(--g-red);} .c-yellow{--c:var(--g-yellow);} .c-green{--c:var(--g-green);}
 
   .role-top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;}
-  .role-title{font-size:14px;font-weight:800;color:var(--ink);letter-spacing:-.01em;}
-  .role-dates{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);white-space:nowrap;}
-  .role-org{font-size:10.5px;color:var(--accent-deep);font-weight:600;margin-top:1px;}
-  .role-org .sep{color:var(--rule);margin:0 6px;font-weight:400;}
-  .role-org .loc{color:var(--muted);font-weight:500;}
-  .role-intro{font-size:10px;color:var(--ink-soft);margin-top:5px;line-height:1.4;margin-bottom: 8px;}
+  .role-title{font-family:var(--head);font-size:13.5px;font-weight:600;color:var(--ink);}
+  .role-dates{font-family:'Roboto Mono',monospace;font-size:9px;color:var(--blue-dark);background:var(--blue-soft);padding:3px 10px;border-radius:20px;white-space:nowrap;font-weight:500;}
+  .role-org{font-size:10.8px;color:var(--blue-deep);font-weight:500;margin-top:3px;}
+  .role-org .sep{color:var(--rule);margin:0 7px;}
+  .role-org .loc{color:var(--muted);}
+  .role-intro{font-size:10.5px;color:var(--ink-soft);line-height:1.5;margin:7px 0 10px;}
   .role-intro b{color:var(--ink);font-weight:700;}
 
-  .subhead{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:8px 0 5px;padding-bottom:3px;border-bottom:1px dashed var(--rule);}
+  .subhead{font-family:'Roboto Mono',monospace;font-size:8.6px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:8px 0 8px;}
 
-  /* Standardizing List Style for ATS */
-  ul.proj-list {list-style: none; margin-bottom: 8px;}
-  .proj-list li {margin-bottom:6px;padding-left:14px;position:relative;}
-  .proj-list li::before{content:"";position:absolute;left:0;top:5px;width:5px;height:5px;border-radius:50%;background:var(--accent);}
-  
-  .proj-list .pt{font-size:10.5px;font-weight:700;color:var(--ink);}
-  .proj-list .pt .meta{font-weight:500;color:var(--accent-deep);font-size:9.5px;}
-  .proj-list .pd{font-size:10px;color:var(--muted);line-height:1.35;margin-top:1px;}
-  .proj-list .pd b{color:var(--ink-soft);font-weight:600;}
+  ul.proj-list{list-style:none;}
+  .proj-list li{margin-bottom:9px;padding:7px 11px 7px 13px;border-left:4px solid var(--g-blue);background:var(--card);border-radius:0 8px 8px 0;}
+  .proj-list li:nth-child(4n+2){border-left-color:var(--g-red);}
+  .proj-list li:nth-child(4n+3){border-left-color:var(--g-yellow);}
+  .proj-list li:nth-child(4n+4){border-left-color:var(--g-green);}
+  .proj-list .pt{font-family:var(--head);font-size:11.3px;font-weight:600;color:var(--ink);}
+  .proj-list .pt .meta{font-family:'Roboto',sans-serif;font-weight:400;color:var(--muted);font-size:9.6px;}
+  .proj-list .pt .meta a{color:var(--blue-deep);}
+  .proj-list .pd{font-size:10.3px;color:var(--ink-soft);line-height:1.45;margin-top:2px;}
+  .proj-list .pd b{color:var(--ink);font-weight:700;}
 
-  .edu{margin-bottom:6px;}
-  .edu-top{display:flex;justify-content:space-between;align-items:baseline;gap:10px;}
-  .edu-deg{font-size:11px;font-weight:700;color:var(--ink);}
-  .edu-yr{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--muted);white-space:nowrap;}
-  .edu-sub{font-size:10px;color:var(--muted);margin-top:1px;}
-  .edu-sub b{color:var(--accent-deep);font-weight:600;}
-
-  .sb-block{margin-bottom:12px;}
-  .skill-cat{margin-bottom:6px;}
-  .skill-cat .k{font-family:'JetBrains Mono',monospace;font-size:8.5px;font-weight:600;letter-spacing:.04em;color:var(--accent-deep);text-transform:uppercase;margin-bottom:1px;}
-  .skill-cat .v{font-size:9.5px;color:var(--ink-soft);line-height:1.35;}
-
-  .award-list{list-style:none;font-size:10px;color:var(--ink-soft); display: flex; flex-wrap: wrap; gap: 4px 24px;}
-  .award-list li{padding-left:14px;position:relative;line-height:1.3;}
-  .award-list li::before{content:"\2605";position:absolute;left:0;color:var(--accent);font-size:9px;top:1px;}
-  .award-list strong{font-weight:700;color:var(--ink);}
-
-  .pub-container {display: flex; flex-direction: column; gap: 7px;}
-  .pub{font-size:9.5px;color:var(--ink-soft);line-height:1.35;}
-  .pub .src{font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--accent-deep);display:block;letter-spacing:.02em;margin-bottom:1px;}
-  .pub a{color:var(--accent);text-decoration:none;}
-
-  .interest-container {display: flex; flex-direction: column; gap: 4px;}
-  .interest{font-size:9.5px;color:var(--ink-soft);line-height:1.35;}
+  .pub-container,.interest-container{display:flex;flex-direction:column;gap:8px;}
+  .pub,.interest{font-size:10.3px;color:var(--ink-soft);line-height:1.5;}
+  .pub .src{font-family:'Roboto Mono',monospace;font-size:8.8px;color:var(--blue-deep);display:block;margin-bottom:2px;}
+  .pub a{color:var(--blue-deep);}
   .interest strong{color:var(--ink);}
 
   @media print{
-    body{background:#fff;padding:0;}
-    .sheet{box-shadow:none; width:100%; min-height:279mm;}
-    @page{size:A4;margin:8mm;}
-    a{color:inherit;}
+    html,body{background:#fff;padding:0;margin:0;}
+    .sheet{box-shadow:none;width:210mm;height:296.5mm;margin:0;}
+    @page{size:A4;margin:0;}
     *{-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-    .pdf-btn{display:none;}
   }
-
   @media(max-width:760px){
     body{padding:10px;}
-    .sheet{width:100%;}
-    .masthead-top{flex-direction:column;}
+    .sheet{width:100%;height:auto;overflow:visible;grid-template-columns:1fr;background:var(--paper);}
+    .side{background:var(--blue-deep);}
   }
 </style>
 </head>
 <body>
 <div class="sheet">
 
-  <header class="masthead">
-    <div class="masthead-top">
-      <div>
-        <div class="name">Aryan Tiwari</div>
-        <div class="tagline">AI/ML Engineer · Python · Data Pipelines & Model Development · GCP</div>
+  <aside class="side">
+    <div class="name">Aryan<br>Tiwari</div>
+    <div class="dots"><i></i><i></i><i></i><i></i></div>
+    <div class="tagline">AI/ML Engineer · Python · Data Pipelines &amp; Model Development · GCP</div>
+
+    <div class="s-label">Contact</div>
+    <ul class="contact-list">
+      <li><span class="k">Experience</span>3.7 years</li>
+      <li><span class="k">Email</span><a href="mailto:privacymcprivateanon@gmail.com">privacymcprivateanon@gmail.com</a></li>
+      <li><span class="k">Phone</span>+91 9953238821</li>
+      <li><span class="k">LinkedIn</span><a href="https://www.linkedin.com/in/aryan-tiwari-3882b168/">linkedin.com/in/aryan-tiwari</a></li>
+      <li><span class="k">Location</span>Noida, India</li>
+    </ul>
+
+    <div class="s-label">Skills</div>
+    <div class="skill-cat">
+      <div class="k">Machine Learning &amp; AI</div>
+      <div class="chips">
+        <span class="chip">LLM orchestration layer design</span><span class="chip">Data preprocessing</span><span class="chip">RAG</span><span class="chip">Agentic workflows</span><span class="chip">OpenAI SDK</span><span class="chip">Vertex AI</span><span class="chip">Gemini SDK</span><span class="chip">LangChain</span><span class="chip">Llama.cpp</span><span class="chip">HuggingFace</span>
       </div>
-      <a class="pdf-btn" href="https://drive.google.com/file/d/1BOqithhqSH4QXkv1jR5DdlA9_uo7muU1/view?usp=sharing" target="_blank" rel="noopener">Get PDF</a>
     </div>
-    <div class="contacts">
-      <span><span class="dot"></span>Experience: 3.5 years</span>
-      <span><span class="dot"></span>aryantiwari209@gmail.com</span>
-      <span><span class="dot"></span>+91 9953238821</span>
-      <span><span class="dot"></span><a href="https://www.linkedin.com/in/aryan-tiwari-3882b168/">linkedin.com/in/aryan-tiwari</a></span>
-      <span><span class="dot"></span>Noida, India</span>
+    <div class="skill-cat">
+      <div class="k">Languages &amp; tooling</div>
+      <div class="chips">
+        <span class="chip">Python (Pandas)</span><span class="chip">JavaScript</span><span class="chip">SQL</span><span class="chip">Bash</span><span class="chip">PowerShell</span><span class="chip">C/C++</span><span class="chip">GCP</span><span class="chip">BigQuery</span><span class="chip">App Engine</span><span class="chip">Postgres</span><span class="chip">Git</span><span class="chip">React 19</span><span class="chip">Next.js</span><span class="chip">Angular</span><span class="chip">Node.js</span><span class="chip">Flask</span><span class="chip">FastAPI</span><span class="chip">TailwindCSS</span>
+      </div>
     </div>
-  </header>
+
+    <div class="s-label">Education</div>
+    <div class="edu">
+      <div class="edu-deg">Bachelor of Computer Applications</div>
+      <div class="edu-sub">Amity University, Noida</div>
+      <div class="edu-yr">2019 – 2022</div>
+    </div>
+    <div class="edu">
+      <div class="edu-deg">Certificate Course in Business Management &amp; Digital Marketing</div>
+      <div class="edu-sub">Indian Institute of Technology, Delhi</div>
+      <div class="edu-yr">2019</div>
+    </div>
+
+    <div class="s-label">Recognition</div>
+    <ul class="award-list">
+      <li><strong>2&times; Deloitte Spot Award</strong></li>
+      <li><strong>Applause Award</strong> &mdash; Project CLONE</li>
+      <li><strong>TMT Token of Gratitude</strong></li>
+      <li>Multiple Google letters of appreciation</li>
+    </ul>
+  </aside>
 
   <main class="main">
-    <div class="main-label">Experience</div>
+    <div class="m-label c-blue">Experience</div>
 
     <div class="role-top">
       <div class="role-title">Software Engineer I — AI &amp; Engineering</div>
       <div class="role-dates">Feb 2023 – Present</div>
     </div>
     <div class="role-org">Deloitte USI · Google Cloud VMO<span class="sep">|</span><span class="loc">Gurgaon / Hyderabad, IN</span></div>
-    <p class="role-intro">Developer in the Google Cloud VMO AI &amp; Automation ecosystem, building and shipping production ML/LLM systems at Google scale. Hands-on across the full lifecycle — researching techniques, preprocessing data in Python, and owning solutions through testing and scale-up. Built <b>RAG chatbots, AI forecasting platforms, agentic automation, and contract-review tooling</b> for <b>30,000+ users</b>.</p>
+    <p class="role-intro">Developer in the Google Cloud VMO AI &amp; Automation ecosystem, building and shipping production ML/LLM systems at Google scale. Hands-on across the full lifecycle — researching techniques, preprocessing data in Python, and owning solutions through testing and scale-up. Built <b>RAG chatbots, AI forecasting platforms, agentic automation, and contract-review tooling</b>.</p>
 
     <div class="subhead">VMO AI &amp; Automation Ecosystem</div>
-
     <ul class="proj-list">
       <li>
-        <div class="pt">[Redacted Internal Tool Name]<span class="meta">(Text-to-SQL RAG)</span></div>
+        <div class="pt">Enterprise-grade GenAI Chatbot <span class="meta">(Text-to-SQL RAG)</span></div>
         <div class="pd">Built a <b>Vertex AI + Gemini</b> RAG system on top of operational &amp; financial datasets, giving leadership conversational access — eliminated analyst dependency for <b>70%</b> of reporting requests.</div>
       </li>
       <li>
-        <div class="pt">[Redacted Internal Tool Name] <span class="meta">(solo build)</span></div>
+        <div class="pt">AI Finance Forecasting Platform <span class="meta">(solo build)</span></div>
         <div class="pd">Solo developer; cleaned &amp; analyzed financial datasets in <b>Python/Pandas</b> to drive forecast/actuals reporting; <b>30,000+ visits</b> as source of truth for invoice validation; planning effort down <b>50%</b>.</div>
       </li>
       <li>
-        <div class="pt">[Redacted Internal Tool Name] <span class="meta">(with HashedIn)</span></div>
+        <div class="pt">Mass Contract-Review Agentic workflow Automation <span class="meta">(with HashedIn)</span></div>
         <div class="pd">Architect/SME on a <b>$200K Deloitte-funded</b> platform for Google that overhauled VMO finance processes; automated contract review via <b>LLM clause &amp; metric extraction</b>.</div>
       </li>
       <li>
-        <div class="pt">[Redacted Internal Tool Name]</div>
+        <div class="pt">Agentic Workflow Automation for critical Procurement Processes</div>
         <div class="pd">Implemented AI features across intake, approvals &amp; turnaround tracking; cut PO turnaround time by <b>27%</b> and improved process governance.</div>
       </li>
       <li>
-        <div class="pt">Agentic Data Platform &amp; AI Taxonomy Standardizer</div>
+        <div class="pt">Internal Data Consolidation Platform &amp; AI based Taxonomy Standardizer</div>
         <div class="pd">LLM platform combining usage analytics with Text-to-SQL for data navigation; taxonomy standardizer scripts that <b>saved hundreds of manual hours</b>.</div>
       </li>
     </ul>
 
-    <div class="main-label">Projects</div>
+    <div class="m-label gap c-red">Projects</div>
     <ul class="proj-list">
       <li>
-        <div class="pt">Schema Representation Tool <span class="meta">— Python - <a href="https://github.com/AryanEmbered/Ultimate-Semi-structured-Schema-Representation" style="color:inherit; text-decoration:underline;">repo</a></span></div>
+        <div class="pt">Schema Representation Tool <span class="meta">— Python · <a href="https://github.com/AryanEmbered/Ultimate-Semi-structured-Schema-Representation">repo</a></span></div>
         <div class="pd">CLI/library that profiles CSV files into LLM/SQL-ready schema reports (types, coverage, stats, sample values).</div>
       </li>
       <li>
-        <div class="pt">Suspend-ReXume <span class="meta">— Python, Win32/XInput - <a href="https://github.com/AryanEmbered/Suspend-ReXume" style="color:inherit; text-decoration:underline;">repo</a></span></div>
+        <div class="pt">Suspend-ReXume <span class="meta">— Python, Win32/XInput · <a href="https://github.com/AryanEmbered/Suspend-ReXume">repo</a></span></div>
         <div class="pd">Built a RAM-suspension tool for Windows, automatically pausing resource-heavy apps and games for instant recall, improving user efficiency by 30%.</div>
       </li>
     </ul>
 
-    <div class="main-label">Education</div>
-    <div class="edu">
-      <div class="edu-top"><div class="edu-deg">Bachelor of Computer Applications</div><div class="edu-yr">2019 – 2022</div></div>
-      <div class="edu-sub">Amity University, Noida</div>
-    </div>
-    <div class="edu">
-      <div class="edu-top"><div class="edu-deg">Certificate Course in Business Management &amp; Digital Marketing</div><div class="edu-yr">2019</div></div>
-      <div class="edu-sub">Indian Institute of Technology, Delhi</div>
-    </div>
-
-    <div class="main-label">Skills</div>
-    <div class="sb-block">
-      <div class="skill-cat"><div class="k">Machine Learning &amp; AI</div><div class="v">LLM orchestration layer design · Data preprocessing · RAG · Agentic workflows · OpenAI SDK · Vertex AI · Gemini SDK · LangChain · Llama.cpp · HuggingFace</div></div>
-      <div class="skill-cat"><div class="k">Languages &amp; tooling</div><div class="v">Python (Pandas) · JavaScript · SQL · Bash · PowerShell · C/C++ · GCP · BigQuery · App Engine · Postgres · Git · React 19 · Next.js · Angular · Node.js · Flask · FastAPI · TailwindCSS</div></div>
-    </div>
-
-    <div class="main-label">Recognition</div>
-    <ul class="award-list" style="margin-bottom: 4px;">
-      <li><strong>2&times; Deloitte Spot Award</strong></li>
-      <li><strong>Applause Award</strong> &mdash; Project CLONE</li>
-      <li><strong>TMT Token of Gratitude</strong></li>
-      <li>Multiple Google letters of appreciation</li>
-    </ul>
-
-    <div class="main-label">Publications</div>
+    <div class="m-label gap c-yellow">Publications</div>
     <div class="pub-container">
       <div class="pub">
         <span class="src"><a href="https://www.cybernomics.in/index.php/cnm/article/view/143">Cybernomics Journal · Feb 2020</a></span>
@@ -217,7 +238,7 @@
       </div>
     </div>
 
-    <div class="main-label">Interests</div>
+    <div class="m-label gap c-green">Interests</div>
     <div class="interest-container">
       <p class="interest"><strong>WTC Productions</strong> — Ran a 73k-subscriber YouTube network, led 136 contractors, scripted automated payouts.</p>
       <p class="interest"><strong>Local-LLM tinkering</strong> — Active in self-hosting and optimizing open-source models for local inference.</p>
